@@ -5,13 +5,18 @@
  */
 package System;
 
+import myWindow.myWindow;
+import myWindow.rootWindow;
 import data.Data;
 import java.io.IOException;
+import java.util.Stack;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -19,33 +24,20 @@ import javafx.stage.Stage;
  */
 public class QueueSystem extends Application {
     
-    public FXMLLoader mainMenuLoader;
-    public Stage mainStage;
-    public Data data;
+    public myWindow rootWindow;
+    public Stack<Stage> stages;
+    public Stack<Scene> scenes;
     
+    public QueueSystem() {
+        
+    }
     @Override
     public void start(Stage stage) throws Exception {
-        init(stage);
-        paintMainMenu();
+        rootWindow = new myWindow(stage);
+        rootWindow.setTitle("行政執行署-台南分署：叫號系統");
+        rootWindow.init("/System/rootMenu.fxml");
+        rootWindow.open();
         
-    }
-    public void init(Stage stage) throws IOException {
-        this.mainStage = stage;
-        initData();
-        initMainMenu();
-    }
-    public void initData() {
-        this.data = new Data(10);
-    }
-    public void initMainMenu() throws IOException{
-        
-       this.mainMenuLoader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
-        this.mainStage.setScene(new Scene(mainMenuLoader.load()));
-        MainMenuController controller = mainMenuLoader.getController();
-        controller.init(this.data);
-    }
-    public void paintMainMenu() throws IOException {
-        this.mainStage.show();
     }
     /**
      * @param args the command line arguments
