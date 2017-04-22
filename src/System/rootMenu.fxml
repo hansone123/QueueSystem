@@ -11,33 +11,38 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RootMenuController">
     <children>
-        <Button fx:id="Introduction" layoutX="20.0" layoutY="324.0" onAction="#handleButtonAction" prefHeight="53.0" prefWidth="121.0" text="業務內容說明" />
+        <Button fx:id="button_Introduction" layoutX="20.0" layoutY="324.0" onAction="#handleButtonAction" prefHeight="53.0" prefWidth="121.0" text="業務內容說明" />
         <Label fx:id="label" layoutX="155.0" layoutY="5.0" minHeight="16" minWidth="69" prefHeight="32.0" prefWidth="106.0" text="目前號碼">
          <font>
             <Font size="25.0" />
          </font></Label>
-      <Button fx:id="button_PaymentA" layoutX="20.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="121.0" text="稅金繳款" />
-      <Button fx:id="button_PaymentB" layoutX="20.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="121.0" text="健保繳款" />
-      <Button fx:id="button_PaymentC" layoutX="20.0" layoutY="166.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="121.0" text="罰金繳款" />
-      <Button fx:id="button_PaymentD" layoutX="20.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="121.0" text="各項費用繳款" />
-      <Label fx:id="label_PaymentA" layoutX="194.0" layoutY="37.0" minHeight="16" minWidth="45.0" prefHeight="45.0" prefWidth="45.0" text="0">
+      <Button fx:id="button_TAX_PAYMENT" layoutX="20.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="121.0" text="稅金繳款" />
+      <Button fx:id="button_HEALTH_INSURANCE_PAYMENT" layoutX="20.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="121.0" text="健保繳款" />
+      <Button fx:id="button_FINE_PAYMENT" layoutX="20.0" layoutY="166.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="121.0" text="罰金繳款" />
+      <Button fx:id="button_OTHER_COST" layoutX="20.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="121.0" text="各項費用繳款" />
+      <Label fx:id="label_TAX_PAYMENT" layoutX="194.0" layoutY="37.0" minHeight="16" minWidth="45.0" prefHeight="45.0" prefWidth="45.0" text="0">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="label_PaymentA1" layoutX="194.0" layoutY="97.0" minHeight="16" minWidth="45.0" prefHeight="53.0" prefWidth="45.0" text="0">
+      <Label fx:id="label_HEALTH_INSURANCE_PAYMENT" layoutX="194.0" layoutY="97.0" minHeight="16" minWidth="45.0" prefHeight="53.0" prefWidth="45.0" text="0">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="label_PaymentA11" layoutX="194.0" layoutY="162.0" minHeight="16" minWidth="45.0" prefHeight="53.0" prefWidth="45.0" text="0">
+      <Label fx:id="label_FINE_PAYMENT" layoutX="194.0" layoutY="162.0" minHeight="16" minWidth="45.0" prefHeight="53.0" prefWidth="45.0" text="0">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="label_PaymentA111" layoutX="194.0" layoutY="231.0" minHeight="16" minWidth="45.0" prefHeight="45.0" prefWidth="45.0" text="0">
+      <Label fx:id="label_OTHER_COST_PAYMENT" layoutX="194.0" layoutY="231.0" minHeight="16" minWidth="45.0" prefHeight="45.0" prefWidth="45.0" text="0">
          <font>
             <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_CLOCK" layoutX="333.0" layoutY="5.0" minHeight="16" minWidth="69" prefHeight="32.0" prefWidth="241.0" text="日期">
+         <font>
+            <Font size="25.0" />
          </font>
       </Label>
     </children>

@@ -5,12 +5,10 @@
  */
 package Controller;
 
-import myWindow.myWindow;
-import java.net.URL;
-import java.util.ResourceBundle;
+import Command.Command;
+import Command.CreateScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.stage.Stage;
@@ -34,12 +32,10 @@ public class SubMenu1Controller extends Controller {
         
         switch(fxid) {
             case "back":
-                
                 break;
             case "home":
-                createScene("/System/rootMenu.fxml");
-                break;
-            default:
+                Command cmd = new CreateScene("/System/rootMenu.fxml", nStage);
+                cmd.execute();
                 break;
         }
     }

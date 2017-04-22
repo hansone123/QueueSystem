@@ -9,6 +9,7 @@ package Command;
  *
  * @author Hanson
  */
-public interface Command {
-    
+abstract public class Command {
+    abstract public void execute();
+    abstract public void undo();
 }

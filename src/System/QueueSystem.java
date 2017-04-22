@@ -5,18 +5,13 @@
  */
 package System;
 
+import SharedData.SharedData;
+import java.util.Calendar;
 import myWindow.myWindow;
-import myWindow.rootWindow;
-import data.Data;
-import java.io.IOException;
 import java.util.Stack;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  *
