@@ -39,11 +39,13 @@ public class SharedData {
         return instance; 
     } 
     public void CreateSystemTable() throws SQLException {
+        
         db = DriverManager.getConnection("jdbc:sqlite:QueueSystem.db");
         Statement statement = db.createStatement();
         statement.executeUpdate("create table QueueSystem(date )");
     }
     public void setServingNumber(PaymentType type, int input) {
+        
         switch(type) {
             case TAX_PAYMENT:
                 servingNumber[0] = input;
@@ -62,6 +64,7 @@ public class SharedData {
         }
     }
     public int getServingNumber(PaymentType type) {
+        
         int QueueNumber = 0;
         switch(type) {
             case TAX_PAYMENT:
@@ -82,6 +85,7 @@ public class SharedData {
         return QueueNumber;
     }
     public void setQueueNumber(PaymentType type, int input) {
+        
         switch(type) {
             case TAX_PAYMENT:
                 queueNumber[0] = input;
