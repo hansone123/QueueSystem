@@ -9,18 +9,14 @@ import Command.Command;
 import Command.CreateScene;
 import Command.ProduceQueueNumber;
 import SharedData.SharedData;
-import static System.PaymentType.*;
-import System.UpdatesClockTask;
+import System.PaymentType;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Timer;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
@@ -32,16 +28,21 @@ import javafx.util.Duration;
  * @author Hanson
  */
 public class RootMenuController extends Controller {
-  
-    @FXML Button Button_TAX_PAYMENT;
-    @FXML Button Button_HEALTH_INSURANCE_PAYMENT;
-    @FXML Button Button_FINE_PAYMENT;
-    @FXML Button Button_OTHER_COST;
-    @FXML Button Button_Introduction;
-    @FXML Label label_TAX_PAYMENT;
-    @FXML Label label_HEALTH_INSURANCE_PAYMENT;
-    @FXML Label label_FINE_PAYMENT;
-    @FXML Label label_OTHER_COST_PAYMENT;
+            
+    @FXML Button button_BUREAU_OF_TRANSPORTATION;
+    @FXML Button button_LOCAL_TAX;
+    @FXML Button button_MOTOR_VEHICLES_OFFICE;
+    @FXML Button button_NATIONAL_TAX;
+    @FXML Button button_SERVICE_WINDOW;
+    @FXML Button button_HEALTH_INSURANCE;
+    @FXML Button button_BUREAU_OF_LABOR;
+    @FXML Label label_BUREAU_OF_TRANSPORTATION;
+    @FXML Label label_LOCAL_TAX;
+    @FXML Label label_MOTOR_VEHICLES_OFFICE;
+    @FXML Label label_NATIONAL_TAX;
+    @FXML Label label_SERVICE_WINDOW;
+    @FXML Label label_HEALTH_INSURANCE;
+    @FXML Label label_BUREAU_OF_LABOR;
     @FXML Label label_CALENDAR;
     @FXML Label label_CLOCK;
     
@@ -51,17 +52,27 @@ public class RootMenuController extends Controller {
         String fxid = ((Control)event.getSource()).getId();
         Command cmd = null;
         switch(fxid) {
-            case "button_TAX_PAYMENT":
-                cmd = new ProduceQueueNumber(TAX_PAYMENT);
+            
+            case "button_BUREAU_OF_TRANSPORTATION":
+                cmd = new ProduceQueueNumber(PaymentType.BUREAU_OF_TRANSPORTATION);
                 break;
-            case "button_HEALTH_INSURANCE_PAYMENT":
-                cmd = new ProduceQueueNumber(HEALTH_INSURANCE_PAYMENT);
+            case "button_LOCAL_TAX":
+                cmd = new ProduceQueueNumber(PaymentType.LOCAL_TAX);
                 break;
-            case "button_FINE_PAYMENT":
-                cmd = new ProduceQueueNumber(FINE_PAYMENT);
+            case "button_SERVICE_WINDOW":
+                cmd = new ProduceQueueNumber(PaymentType.SERVICE_WINDOW);
                 break;
-            case "button_OTHER_COST":
-                cmd = new ProduceQueueNumber(OTHER_COST_PAYMENT);
+            case "button_HEALTH_INSURANCE":
+                cmd = new ProduceQueueNumber(PaymentType.HEALTH_INSURANCE);
+                break;
+            case "button_BUREAU_OF_LABOR":
+                cmd = new ProduceQueueNumber(PaymentType.BUREAU_OF_LABOR);
+                break;
+            case "button_NATIONAL_TAX":
+                cmd = new ProduceQueueNumber(PaymentType.NATIONAL_TAX);
+                break;
+            case "button_MOTOR_VEHICLES_OFFICE":
+                cmd = new ProduceQueueNumber(PaymentType.MOTOR_VEHICLES_OFFICE);
                 break;
             case "button_Introduction":
                 cmd = new CreateScene("/System/subMenu1.fxml", nStage);
@@ -75,10 +86,13 @@ public class RootMenuController extends Controller {
     public void updatesInfo() {
         
         initClock();
-        label_TAX_PAYMENT.setText(String.valueOf(data.getQueueNumber(TAX_PAYMENT)));
-        label_HEALTH_INSURANCE_PAYMENT.setText(String.valueOf(data.getQueueNumber(HEALTH_INSURANCE_PAYMENT)));
-        label_FINE_PAYMENT.setText(String.valueOf(data.getQueueNumber(FINE_PAYMENT)));
-        label_OTHER_COST_PAYMENT.setText(String.valueOf(data.getQueueNumber(OTHER_COST_PAYMENT)));
+        label_BUREAU_OF_TRANSPORTATION.setText(String.valueOf(this.data.getQueueNumber(PaymentType.BUREAU_OF_TRANSPORTATION)));
+        label_LOCAL_TAX.setText(String.valueOf(this.data.getQueueNumber(PaymentType.LOCAL_TAX)));
+        label_MOTOR_VEHICLES_OFFICE.setText(String.valueOf(this.data.getQueueNumber(PaymentType.MOTOR_VEHICLES_OFFICE)));
+        label_NATIONAL_TAX.setText(String.valueOf(String.valueOf(this.data.getQueueNumber(PaymentType.NATIONAL_TAX))));
+        label_SERVICE_WINDOW.setText(String.valueOf(String.valueOf(this.data.getQueueNumber(PaymentType.SERVICE_WINDOW))));
+        label_HEALTH_INSURANCE.setText(String.valueOf(String.valueOf(this.data.getQueueNumber(PaymentType.HEALTH_INSURANCE))));
+        label_BUREAU_OF_LABOR.setText(String.valueOf(String.valueOf(this.data.getQueueNumber(PaymentType.BUREAU_OF_LABOR))));
     }
     public void initClock() {
         

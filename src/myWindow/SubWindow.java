@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  *
  * @author hanson
  */
-public class SubWindow extends myWindow{
+public class SubWindow extends MyWindow{
 
     public SubWindow(Stage stage) {
         super(stage);

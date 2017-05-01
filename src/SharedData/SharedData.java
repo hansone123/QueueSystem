@@ -6,7 +6,7 @@
 package SharedData;
 
 import System.PaymentType;
-import static System.PaymentType.TAX_PAYMENT;
+import static System.PaymentType.BUREAU_OF_LABOR;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -44,90 +44,25 @@ public class SharedData {
         Statement statement = db.createStatement();
         statement.executeUpdate("create table QueueSystem(date )");
     }
-    public void setServingNumber(PaymentType type, int input) {
-        
-        switch(type) {
-            case TAX_PAYMENT:
-                servingNumber[0] = input;
-                break;
-            case HEALTH_INSURANCE_PAYMENT:
-                servingNumber[1] = input;
-                break;
-            case FINE_PAYMENT:
-                servingNumber[2] = input;
-                break;
-            case OTHER_COST_PAYMENT:
-                servingNumber[3] = input;
-                break;
-            default:
-                break;
-        }
+    public void setServingNumber(PaymentType type, int iNum) {
+        this.servingNumber[type.getValue()] = iNum;
     }
     public int getServingNumber(PaymentType type) {
-        
-        int QueueNumber = 0;
-        switch(type) {
-            case TAX_PAYMENT:
-                QueueNumber = servingNumber[0];
-                break;
-            case HEALTH_INSURANCE_PAYMENT:
-                QueueNumber = servingNumber[1];
-                break;
-            case FINE_PAYMENT:
-                QueueNumber = servingNumber[2];
-                break;
-            case OTHER_COST_PAYMENT:
-                QueueNumber = servingNumber[3];
-                break;
-            default:
-                break;
-        }
-        return QueueNumber;
+        return this.servingNumber[type.getValue()];
     }
-    public void setQueueNumber(PaymentType type, int input) {
+    public void setQueueNumber(PaymentType type, int iNum) {
         
-        switch(type) {
-            case TAX_PAYMENT:
-                queueNumber[0] = input;
-                break;
-            case HEALTH_INSURANCE_PAYMENT:
-                queueNumber[1] = input;
-                break;
-            case FINE_PAYMENT:
-                queueNumber[2] = input;
-                break;
-            case OTHER_COST_PAYMENT:
-                queueNumber[3] = input;
-                break;
-            default:
-                break;
-        }
+        this.queueNumber[type.getValue()] = iNum;
     }
     public int getQueueNumber(PaymentType type) {
-        int QueueNumber = 0;
-        switch(type) {
-            case TAX_PAYMENT:
-                QueueNumber = queueNumber[0];
-                break;
-            case HEALTH_INSURANCE_PAYMENT:
-                QueueNumber = queueNumber[1];
-                break;
-            case FINE_PAYMENT:
-                QueueNumber = queueNumber[2];
-                break;
-            case OTHER_COST_PAYMENT:
-                QueueNumber = queueNumber[3];
-                break;
-            default:
-                break;
-        }
-        return QueueNumber;
+        
+        return this.queueNumber[type.getValue()];
     }
     
     public static void main(String args[]) {
         SharedData data = SharedData.getInstance();
-        data.setQueueNumber(TAX_PAYMENT, 10);
-        System.out.println(data.getQueueNumber(TAX_PAYMENT));
+        data.setQueueNumber(PaymentType.BUREAU_OF_LABOR, 10);
+        System.out.println(data.getQueueNumber(BUREAU_OF_LABOR));
     }
 
 }

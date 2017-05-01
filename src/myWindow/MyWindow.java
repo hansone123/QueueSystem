@@ -20,12 +20,12 @@ import javafx.stage.StageStyle;
  *
  * @author hanson
  */
-public class myWindow {
+public class MyWindow {
     Stage stage;
     Scene scene;
     
    
-    public myWindow(Stage stage) {
+    public MyWindow(Stage stage) {
         this.stage = stage;
         
     }

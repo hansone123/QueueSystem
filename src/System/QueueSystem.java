@@ -5,7 +5,7 @@
  */
 package System;
 
-import myWindow.myWindow;
+import myWindow.MyWindow;
 import java.util.Stack;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  */
 public class QueueSystem extends Application {
     
-    public myWindow rootWindow;
+    public MyWindow rootWindow;
     public Stack<Stage> stages;
     public Stack<Scene> scenes;
     
@@ -26,9 +26,9 @@ public class QueueSystem extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        rootWindow = new myWindow(stage);
+        rootWindow = new MyWindow(stage);
         rootWindow.setTitle("行政執行署-台南分署：叫號系統");
-        rootWindow.init("/System/rootMenu.fxml");
+        rootWindow.init("/System/Root.fxml");
         rootWindow.open();
         
     }
