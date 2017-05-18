@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import SharedData.SharedData;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
@@ -17,13 +18,11 @@ import javafx.stage.Stage;
  * @author hanson
  */
 public abstract  class Controller implements Initializable{
- 
-    Scene nScene;
-    Stage nStage;
+
+    public Scene nScene;
+    public Stage nStage;
     
-    public void Controller() {
-        
-    }
+    
     public void createScene(String fxml) {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml));

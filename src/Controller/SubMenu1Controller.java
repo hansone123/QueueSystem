@@ -7,6 +7,7 @@ package Controller;
 
 import Command.Command;
 import Command.CreateScene;
+import SharedData.SharedData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -34,7 +35,7 @@ public class SubMenu1Controller extends Controller {
             case "back":
                 break;
             case "home":
-                Command cmd = new CreateScene("/System/rootMenu.fxml", nStage);
+                Command cmd = new CreateScene(SharedData.getInstance().fxmlDir + "queueGUI.fxml", nStage);
                 cmd.execute();
                 break;
         }
@@ -46,6 +47,7 @@ public class SubMenu1Controller extends Controller {
 
     @Override
     public void loadData() {
-        
+    
     }
+    
 }

@@ -28,7 +28,6 @@ public class RootController extends Controller implements Initializable {
     @FXML Button button_QueueSystem;
     @FXML Button button_ShowState;
     
-    SharedData data;
     /**
      * Initializes the controller class.
      */
@@ -45,14 +44,14 @@ public class RootController extends Controller implements Initializable {
                 Stage stage = new Stage();
                 MyWindow QueueInterface = new MyWindow(stage);
                 QueueInterface.setTitle("行政執行署-台南分署：叫號介面");
-                QueueInterface.init("/System/rootMenu.fxml");
+                QueueInterface.init(SharedData.getInstance().fxmlDir + "queueGUI.fxml");
                 QueueInterface.open();
                 break;
             case "button_ShowState":
                 Stage stage2 = new Stage();
                 MyWindow StateWindow = new MyWindow(stage2);
                 StateWindow.setTitle("行政執行署-台南分署：叫號狀態");
-                StateWindow.init("/System/StateMenu.fxml");
+                StateWindow.init(SharedData.getInstance().fxmlDir + "queueState.fxml");
                 StateWindow.open();
                 break;
         }
@@ -60,6 +59,5 @@ public class RootController extends Controller implements Initializable {
 
     @Override
     public void loadData() {
-        data = SharedData.getInstance();
     }
 }

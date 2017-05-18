@@ -5,8 +5,11 @@
  */
 package SharedData;
 
+import DocxProcess.DocxTemplateReplacer;
 import System.PaymentType;
 import static System.PaymentType.BUREAU_OF_LABOR;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,20 +27,26 @@ public class SharedData {
     public Connection db;
     public int [] queueNumber;
     public int [] servingNumber;
-    public Calendar calendar;
+    public String fxmlDir = "/fxml/";
+    public String numberTemplatePath;
+    public String numberPlatePath;
     
     private static SharedData instance = new SharedData(); 
+    
     private SharedData() {
         queueNumber = new int[10];
-        calendar = Calendar.getInstance();
-        initData();
-    } 
-    private void initData() {
         Arrays.fill(queueNumber, 0);
+                 
+    } 
+    public void init() throws FileNotFoundException {
+        numberTemplatePath = System.getProperty("user.dir") + "/" + "/Template-Number.docx";
+        numberPlatePath = System.getProperty("user.dir") + "/" + "/NumberPlate.docx";
+        
     }
     public static SharedData getInstance() { 
         return instance; 
     } 
+    
     public void CreateSystemTable() throws SQLException {
         
         db = DriverManager.getConnection("jdbc:sqlite:QueueSystem.db");
@@ -50,6 +59,12 @@ public class SharedData {
     public int getServingNumber(PaymentType type) {
         return this.servingNumber[type.getValue()];
     }
+    public String getTemplatePath() {
+        return this.numberTemplatePath;
+    }
+    public String getNumberPlatePath() {
+        return this.numberPlatePath;
+    }
     public void setQueueNumber(PaymentType type, int iNum) {
         
         this.queueNumber[type.getValue()] = iNum;
@@ -58,7 +73,6 @@ public class SharedData {
         
         return this.queueNumber[type.getValue()];
     }
-    
     public static void main(String args[]) {
         SharedData data = SharedData.getInstance();
         data.setQueueNumber(PaymentType.BUREAU_OF_LABOR, 10);

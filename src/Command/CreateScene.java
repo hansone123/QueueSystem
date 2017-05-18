@@ -25,6 +25,7 @@ public class CreateScene extends Command {
     @Override
     public void execute() {
        try{
+            
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml));
             Scene scene = new Scene(fxmlLoader.load());
             Controller contr = fxmlLoader.getController();

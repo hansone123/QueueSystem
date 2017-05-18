@@ -5,6 +5,7 @@
  */
 package System;
 
+import SharedData.SharedData;
 import myWindow.MyWindow;
 import java.util.Stack;
 import javafx.application.Application;
@@ -26,9 +27,11 @@ public class QueueSystem extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
+        SharedData data = SharedData.getInstance();
+        data.init();
         rootWindow = new MyWindow(stage);
         rootWindow.setTitle("行政執行署-台南分署：叫號系統");
-        rootWindow.init("/System/Root.fxml");
+        rootWindow.init(SharedData.getInstance().fxmlDir + "Root.fxml");
         rootWindow.open();
         
     }
