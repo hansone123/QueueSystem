@@ -90,36 +90,46 @@ public class ProduceQueueNumber extends Command{
         return patterns;
     }
     private void printOutNumberPlate(String filePath) {
-            
-            InputStream is = null;
-            PrintService service = null;
-            Doc doc = null;
-            try {
-                is = new FileInputStream(filePath);
-                DocFlavor flavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
-                service = PrintServiceLookup.lookupDefaultPrintService();
-                doc = new SimpleDoc(is, flavor, null);
-            } catch (FileNotFoundException ex) {
-                ex.printStackTrace();
-            } 
-            
-            try{
-                DocPrintJob job = service.createPrintJob();
-                PrintJobWatcher pjw = new PrintJobWatcher(job);
-                PrintRequestAttributeSet  pras = new HashPrintRequestAttributeSet();
-                pras.add(new Copies(1));
-                job.print(doc, pras);
-                pjw.waitForDone();
-                is.close();
-            } catch (PrintException ex) {
-                ex.printStackTrace();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            } catch (NullPointerException ex) {
-                System.err.println("No printer found.");
-            }
-        
+        String winCmd = "cmd /c start /min winword " +  filePath + " /q /n /mFilePrintDefault /mFileCloseOrExit";
+//        String winCmd = "start /min winword " +  filePath + "/q /n /mFilePrint /mFileExit ";
+        System.out.println(winCmd);
+        try{
+            Runtime.getRuntime().exec(winCmd);
+        }catch(IOException e) {
+            System.err.println("print failed.");
+        }
     }
+//    private void printOutNumberPlate(String filePath) {
+//            
+//            InputStream is = null;
+//            PrintService service = null;
+//            Doc doc = null;
+//            try {
+//                is = new FileInputStream(filePath);
+//                DocFlavor flavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
+//                service = PrintServiceLookup.lookupDefaultPrintService();
+//                doc = new SimpleDoc(is, flavor, null);
+//            } catch (FileNotFoundException ex) {
+//                ex.printStackTrace();
+//            } 
+//            
+//            try{
+//                DocPrintJob job = service.createPrintJob();
+//                PrintJobWatcher pjw = new PrintJobWatcher(job);
+//                PrintRequestAttributeSet  pras = new HashPrintRequestAttributeSet();
+//                pras.add(new Copies(1));
+//                job.print(doc, pras);
+//                pjw.waitForDone();
+//                is.close();
+//            } catch (PrintException ex) {
+//                ex.printStackTrace();
+//            } catch (IOException ex) {
+//                ex.printStackTrace();
+//            } catch (NullPointerException ex) {
+//                System.err.println("No printer found.");
+//            }
+//        
+//    }
     @Override
     public void execute() {
         
