@@ -83,8 +83,8 @@ public class QueueGUIController extends Controller {
         updatesInfo();
     }
     public void updatesInfo() {
+        
         SharedData data = SharedData.getInstance();
-        initClock();
         label_BUREAU_OF_TRANSPORTATION.setText(String.valueOf(data.getQueueNumber(PaymentType.BUREAU_OF_TRANSPORTATION)));
         label_LOCAL_TAX.setText(String.valueOf(data.getQueueNumber(PaymentType.LOCAL_TAX)));
         label_MOTOR_VEHICLES_OFFICE.setText(String.valueOf(data.getQueueNumber(PaymentType.MOTOR_VEHICLES_OFFICE)));
@@ -93,14 +93,16 @@ public class QueueGUIController extends Controller {
         label_HEALTH_INSURANCE.setText(String.valueOf(String.valueOf(data.getQueueNumber(PaymentType.HEALTH_INSURANCE))));
         label_BUREAU_OF_LABOR.setText(String.valueOf(String.valueOf(data.getQueueNumber(PaymentType.BUREAU_OF_LABOR))));
     }
-    public void initClock() {
-        SharedData data = SharedData.getInstance();
+    
+    public void initCalendar() {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH) + 1;
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         String date = year +"年 " + month + "月 " + day + "日";
         label_CALENDAR.setText(date);
+    }
+    public void initClock() {
         
         DateFormat timeFormat = new SimpleDateFormat( "HH:mm:ss" );
         final Timeline timeline = new Timeline(
@@ -113,10 +115,11 @@ public class QueueGUIController extends Controller {
         );
         timeline.setCycleCount( Animation.INDEFINITE );
         timeline.play();
-
     }
     @Override
     public void loadData() {
+        initCalendar();
+        initClock();
         updatesInfo();
     }
 }

@@ -26,4 +26,24 @@ public enum PaymentType {
     public int getValue() {
         return this.value;
     }
+    public String getName() {
+        
+        switch(this.value) {
+            case 0:
+                return "交通局";
+            case 1:
+                return "市稅";
+            case 2:
+                return "監理站";
+            case 3:
+                return "國稅";
+            case 4:
+                return "單一窗口";
+            case 5:
+                return "健保";
+            case 6:
+                return "勞保";
+        }
+        return "\"錯誤\"";
+    }
 }

@@ -77,6 +77,7 @@ public class ProduceQueueNumber extends Command{
         
         patterns.put("n1", queueNum);
         patterns.put("n2", deskNum);
+        patterns.put("n3", this.paymentType.getName());
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH) + 1;
@@ -92,7 +93,7 @@ public class ProduceQueueNumber extends Command{
     private void printOutNumberPlate(String filePath) {
         String winCmd = "cmd /c start /min winword " +  filePath + " /q /n /mFilePrintDefault /mFileCloseOrExit";
 //        String winCmd = "start /min winword " +  filePath + "/q /n /mFilePrint /mFileExit ";
-        System.out.println(winCmd);
+//        System.out.println(winCmd);
         try{
             Runtime.getRuntime().exec(winCmd);
         }catch(IOException e) {
