@@ -34,6 +34,7 @@ public class QueueSystem extends Application {
         rootWindow.init(SharedData.getInstance().fxmlDir + "Root.fxml");
         rootWindow.open();
         
+        
     }
     /**
      * @param args the command line arguments

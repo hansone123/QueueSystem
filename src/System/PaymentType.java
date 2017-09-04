@@ -46,4 +46,13 @@ public enum PaymentType {
         }
         return "\"錯誤\"";
     }
+    public static void main(String args[]) {
+        PaymentType pt= BUREAU_OF_TRANSPORTATION;
+        System.out.println(pt.getName());
+        String s = String.valueOf(pt);
+        System.out.println(s);
+        
+        
+    }
+            
 }

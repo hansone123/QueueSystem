@@ -31,6 +31,7 @@ public class MyWindow {
     }
     public void init(String fxml) {
         try{
+            
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml)); 
             this.scene = new Scene(fxmlLoader.load());
             Controller contr = fxmlLoader.getController();
@@ -39,6 +40,8 @@ public class MyWindow {
             
         }catch(Exception e) {
             e.printStackTrace();
+            System.err.println(fxml);
+            System.err.println("Check fxml path and Controller config");
         }
     }
     public void setTitle(String title) {

@@ -6,6 +6,7 @@
 package SharedData;
 
 import DocxProcess.DocxTemplateReplacer;
+import System.ConnectDatabase;
 import System.PaymentType;
 import static System.PaymentType.BUREAU_OF_LABOR;
 import java.io.FileInputStream;
@@ -16,6 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 import javafx.animation.Timeline;
 
 /**
@@ -24,35 +26,47 @@ import javafx.animation.Timeline;
  */
 public class SharedData {
     
-    public Connection db;
+    public ConnectDatabase db;
+    public String tableName;
     public int [] queueNumber;
     public int [] servingNumber;
     public String fxmlDir = "/fxml/";
     public String numberTemplatePath;
     public String numberPlatePath;
+    public String year;
+    public String month;
+    public String day;
+    public String date;
     
     private static SharedData instance = new SharedData(); 
     
     private SharedData() {
-        queueNumber = new int[10];
+        queueNumber = new int[7];
         Arrays.fill(queueNumber, 0);
+        
                  
     } 
     public void init() throws FileNotFoundException {
         numberTemplatePath = System.getProperty("user.dir") + "/" + "/Template-Number.docx";
         numberPlatePath = System.getProperty("user.dir") + "/" + "/NumberPlate.docx";
+        tableName = "QueueSystem";
+        this.fillDate();
+        db = new ConnectDatabase("QueueSystem.db");
+        db.prepared();
+        this.loadFromDB(db);
         
     }
     public static SharedData getInstance() { 
         return instance; 
     } 
-    
-    public void CreateSystemTable() throws SQLException {
-        
-        db = DriverManager.getConnection("jdbc:sqlite:QueueSystem.db");
-        Statement statement = db.createStatement();
-        statement.executeUpdate("create table QueueSystem(date )");
+    public void loadFromDB(ConnectDatabase db) {
+        List<String> datas = db.getTodayData();
+        for (int i=0; i<7; i++) {
+            this.queueNumber[i] = Integer.valueOf(datas.get(i+1));
+        }
+        System.out.println();
     }
+    
     public void setServingNumber(PaymentType type, int iNum) {
         this.servingNumber[type.getValue()] = iNum;
     }
@@ -68,15 +82,27 @@ public class SharedData {
     public void setQueueNumber(PaymentType type, int iNum) {
         
         this.queueNumber[type.getValue()] = iNum;
+        String atr = String.valueOf(type);
+        String value = String.valueOf(iNum);
+        db.setData(atr, value);
+        
     }
     public int getQueueNumber(PaymentType type) {
         
         return this.queueNumber[type.getValue()];
     }
+    private void fillDate() {
+        Calendar calendar = Calendar.getInstance();
+        year = String.valueOf(calendar.get(Calendar.YEAR));
+        month = String.valueOf(calendar.get(Calendar.MONTH) + 1);
+        day = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+        date = year + "y" + month+ "m" +day + "d";
+    }
     public static void main(String args[]) {
         SharedData data = SharedData.getInstance();
-        data.setQueueNumber(PaymentType.BUREAU_OF_LABOR, 10);
+        data.setQueueNumber(BUREAU_OF_LABOR, 10);
         System.out.println(data.getQueueNumber(BUREAU_OF_LABOR));
+        System.out.println(data.year+data.month+data.day);
     }
 
 }

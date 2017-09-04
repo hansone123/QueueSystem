@@ -7,12 +7,15 @@ package Controller;
 
 import Command.Command;
 import Command.CreateScene;
+import Command.CreateTimeLimitStage;
 import Command.ProduceQueueNumber;
 import SharedData.SharedData;
 import System.PaymentType;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -49,36 +52,47 @@ public class QueueGUIController extends Controller {
     public void handleButtonAction(ActionEvent event) {
         
         String fxid = ((Control)event.getSource()).getId();
-        Command cmd = null;
+        List<Command> cmds = new ArrayList();
+        
         switch(fxid) {
             
             case "button_BUREAU_OF_TRANSPORTATION":
-                cmd = new ProduceQueueNumber(PaymentType.BUREAU_OF_TRANSPORTATION);
+                cmds.add(new CreateTimeLimitStage(SharedData.getInstance().fxmlDir + "waiting.fxml", "請取單" ,2000));
+                cmds.add(new ProduceQueueNumber(PaymentType.BUREAU_OF_TRANSPORTATION));
                 break;
             case "button_LOCAL_TAX":
-                cmd = new ProduceQueueNumber(PaymentType.LOCAL_TAX);
+                cmds.add(new CreateTimeLimitStage(SharedData.getInstance().fxmlDir + "waiting.fxml", "請取單" ,2000));
+                cmds.add(new ProduceQueueNumber(PaymentType.LOCAL_TAX));
                 break;
             case "button_SERVICE_WINDOW":
-                cmd = new ProduceQueueNumber(PaymentType.SERVICE_WINDOW);
+                cmds.add(new CreateTimeLimitStage(SharedData.getInstance().fxmlDir + "waiting.fxml", "請取單" ,2000));
+                cmds.add(new ProduceQueueNumber(PaymentType.SERVICE_WINDOW));
                 break;
             case "button_HEALTH_INSURANCE":
-                cmd = new ProduceQueueNumber(PaymentType.HEALTH_INSURANCE);
+                cmds.add(new CreateTimeLimitStage(SharedData.getInstance().fxmlDir + "waiting.fxml", "請取單" ,2000));
+                cmds.add(new ProduceQueueNumber(PaymentType.HEALTH_INSURANCE));
                 break;
             case "button_BUREAU_OF_LABOR":
-                cmd = new ProduceQueueNumber(PaymentType.BUREAU_OF_LABOR);
+                cmds.add(new CreateTimeLimitStage(SharedData.getInstance().fxmlDir + "waiting.fxml", "請取單" ,2000));
+                cmds.add(new ProduceQueueNumber(PaymentType.BUREAU_OF_LABOR));
                 break;
             case "button_NATIONAL_TAX":
-                cmd = new ProduceQueueNumber(PaymentType.NATIONAL_TAX);
+                cmds.add(new CreateTimeLimitStage(SharedData.getInstance().fxmlDir + "waiting.fxml", "請取單" ,2000));
+                cmds.add(new ProduceQueueNumber(PaymentType.NATIONAL_TAX));
                 break;
             case "button_MOTOR_VEHICLES_OFFICE":
-                cmd = new ProduceQueueNumber(PaymentType.MOTOR_VEHICLES_OFFICE);
+                cmds.add(new CreateTimeLimitStage(SharedData.getInstance().fxmlDir + "waiting.fxml", "請取單" ,2000));
+                cmds.add(new ProduceQueueNumber(PaymentType.MOTOR_VEHICLES_OFFICE));
                 break;
             case "button_Introduction":
-                cmd = new CreateScene( SharedData.getInstance().fxmlDir + "subMenu1.fxml", nStage);
+                cmds.add(new CreateScene( SharedData.getInstance().fxmlDir + "subMenu1.fxml", nStage));
                 break;
         }
-        if (cmd != null) {
-            cmd.execute();
+        
+        if (!cmds.isEmpty()) {
+            for (Command cmd:cmds) {
+                cmd.execute();
+            }
         }
         updatesInfo();
     }
