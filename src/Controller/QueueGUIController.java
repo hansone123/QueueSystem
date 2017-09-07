@@ -15,6 +15,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -109,11 +110,10 @@ public class QueueGUIController extends Controller {
     }
     
     public void initCalendar() {
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH) + 1;
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        String date = year +"年 " + month + "月 " + day + "日";
+        
+        SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date current = new Date();
+        String date = sdFormat.format(current);
         label_CALENDAR.setText(date);
     }
     public void initClock() {

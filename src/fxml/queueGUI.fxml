@@ -12,13 +12,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="label_Clock" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #69c8f4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.QueueGUIController">
+<AnchorPane id="AnchorPane" fx:id="label_Clock" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #302e34;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.QueueGUIController">
     <children>
-        <Button fx:id="button_Introduction" layoutX="1190.0" layoutY="400.0" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: #bbe9ff;" text="業務內容說明">
+      <ImageView fitHeight="899.0" fitWidth="1599.0" layoutX="-1.0" layoutY="-1.0">
+         <image>
+            <Image url="file:../picture/背景.png" />
+         </image>
+      </ImageView>
+        <Button fx:id="button_Introduction" layoutX="591.0" layoutY="786.0" onAction="#handleButtonAction" prefHeight="113.0" prefWidth="414.0" style="-fx-opacity: 0;" text="業務內容說明">
          <font>
             <Font name="Wingdings" size="40.0" />
          </font></Button>
-      <Button fx:id="button_BUREAU_OF_TRANSPORTATION" layoutX="170.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: #bbe9ff;" text="交通局">
+      <Button fx:id="button_BUREAU_OF_TRANSPORTATION" layoutX="89.0" layoutY="651.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="210.0" prefWidth="208.0" style="-fx-background-radius: 100; -fx-opacity: 0;" text="交通局">
          <font>
             <Font name="Webdings" size="50.0" />
          </font>
@@ -29,7 +34,7 @@
                </font>
             </Label>
          </graphic></Button>
-      <Button fx:id="button_LOCAL_TAX" layoutX="170.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: #bbe9ff;" text="市稅">
+      <Button fx:id="button_LOCAL_TAX" layoutX="202.0" layoutY="426.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="220.0" prefWidth="220.0" style="-fx-background-radius: 150; -fx-opacity: 0;" text="市稅">
          <font>
             <Font name="Wingdings" size="50.0" />
          </font>
@@ -40,7 +45,7 @@
                </font>
             </Label>
          </graphic></Button>
-      <Button fx:id="button_MOTOR_VEHICLES_OFFICE" layoutX="170.0" layoutY="650.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: #bbe9ff;" text="監理站">
+      <Button fx:id="button_MOTOR_VEHICLES_OFFICE" layoutX="414.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="240.0" prefWidth="240.0" style="-fx-background-radius: 150; -fx-opacity: 0;" text="監理站">
          <font>
             <Font name="Wingdings" size="50.0" />
          </font>
@@ -51,7 +56,7 @@
                </font>
             </Label>
          </graphic></Button>
-      <Button fx:id="button_NATIONAL_TAX" layoutX="680.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: #bbe9ff;" text="國稅局">
+      <Button fx:id="button_NATIONAL_TAX" layoutX="673.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="250.0" prefWidth="250.0" style="-fx-background-radius: 150; -fx-opacity: 0;" text="國稅局">
          <font>
             <Font name="Wingdings" size="50.0" />
          </font>
@@ -62,17 +67,17 @@
                </font>
             </Label>
          </graphic></Button>
-      <Label fx:id="label_CALENDAR" layoutX="837.0" layoutY="31.0" minHeight="16" minWidth="69" prefHeight="42.0" prefWidth="330.0" text="日期">
+      <Label fx:id="label_CALENDAR" layoutX="704.0" layoutY="461.0" minHeight="16" minWidth="69" prefHeight="60.0" prefWidth="212.0" text="2017/02/04" textFill="WHITE">
          <font>
-            <Font size="40.0" />
+            <Font name="Luminari" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="label_CLOCK" layoutX="1279.0" layoutY="24.0" minHeight="16" minWidth="69" prefHeight="59.0" prefWidth="228.0" text="時間">
+      <Label fx:id="label_CLOCK" layoutX="723.0" layoutY="508.0" minHeight="16" minWidth="69" prefHeight="60.0" prefWidth="188.0" text="00:00:00" textFill="WHITE">
          <font>
-            <Font size="40.0" />
+            <Font name="Luminari" size="40.0" />
          </font>
       </Label>
-      <Button fx:id="button_SERVICE_WINDOW" layoutX="680.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: #bbe9ff;" text=" 單一窗口">
+      <Button fx:id="button_SERVICE_WINDOW" layoutX="947.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="240.0" prefWidth="240.0" style="-fx-background-radius: 150; -fx-opacity: 0;" text=" 單一窗口">
          <font>
             <Font name="Wingdings" size="44.0" />
          </font>
@@ -84,7 +89,7 @@
             </Label>
          </graphic>
       </Button>
-      <Button fx:id="button_HEALTH_INSURANCE" layoutX="680.0" layoutY="650.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: #bbe9ff;" text="健保">
+      <Button fx:id="button_HEALTH_INSURANCE" layoutX="1176.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="220.0" prefWidth="220.0" style="-fx-background-radius: 150; -fx-opacity: 0;" text="健保">
          <font>
             <Font name="Wingdings" size="50.0" />
          </font>
@@ -96,7 +101,7 @@
             </Label>
          </graphic>
       </Button>
-      <Button fx:id="button_BUREAU_OF_LABOR" layoutX="1190.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: #bbe9ff;" text="勞保">
+      <Button fx:id="button_BUREAU_OF_LABOR" layoutX="1295.0" layoutY="653.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="210.0" prefWidth="210.0" style="-fx-background-radius: 100; -fx-opacity: 0;" text="勞保">
          <font>
             <Font name="Wingdings" size="50.0" />
          </font>
@@ -108,10 +113,5 @@
             </Label>
          </graphic>
       </Button>
-      <Label layoutX="170.0" layoutY="14.0" prefHeight="71.0" prefWidth="580.0" text="法務部行政執行署臺南分署">
-         <font>
-            <Font name="Webdings" size="47.0" />
-         </font>
-      </Label>
     </children>
 </AnchorPane>
