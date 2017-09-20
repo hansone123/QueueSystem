@@ -46,6 +46,7 @@ public class RootController extends Controller implements Initializable {
                 QueueInterface.setTitle("行政執行署-台南分署：叫號介面");
                 QueueInterface.init(SharedData.getInstance().fxmlDir + "queueGUI.fxml");
                 QueueInterface.open();
+                stage.setAlwaysOnTop(true);
                 break;
             case "button_ShowState":
                 Stage stage2 = new Stage();

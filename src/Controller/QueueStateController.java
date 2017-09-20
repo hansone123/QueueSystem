@@ -10,6 +10,10 @@ import SharedData.SharedData;
 import System.MarqueePane;
 import System.PaymentType;
 import com.sun.javafx.tk.Toolkit;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
@@ -20,6 +24,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -37,7 +42,8 @@ public class QueueStateController extends Controller implements Initializable {
     @FXML Label label_SERVICE_WINDOW_NUM;
     @FXML Label label_HEALTH_INSURANCE_NUM;
     @FXML Label label_BUREAU_OF_LABOR_NUM;
-    @FXML Label label_MARQUEE;
+    @FXML Text Text_MARQUEE;
+    @FXML Pane Pane_MARQUEE;
     /**
      * Initializes the controller class.
      */
@@ -59,13 +65,13 @@ public class QueueStateController extends Controller implements Initializable {
     public void loadData() {
         
         keepUpdatesScreen();
-        runMarquee(label_MARQUEE.getPrefWidth(), label_MARQUEE.getPrefHeight(), label_MARQUEE);
+//        runMarquee();
         
     }
     private void keepUpdatesScreen() {
         final Timeline timeline = new Timeline(
             new KeyFrame(
-                Duration.millis( 100 ),
+                Duration.millis( 500 ),
                 event -> {
                     updatesInfo();
                     
@@ -75,25 +81,4 @@ public class QueueStateController extends Controller implements Initializable {
         timeline.setCycleCount( Animation.INDEFINITE );
         timeline.play();
     }
-    
-    private void runMarquee(double width, double height, Label text) {
-        
-        String testText = "我是跑馬燈～跑跑跑跑跑";
-        text.setText(testText);
-        int speed = 10000;
-        Timeline timeline = new Timeline();
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.setAutoReverse(false);
-        double textWidth = Toolkit.getToolkit().getFontLoader().computeStringWidth(text.getText(), text.getFont());
-        text.setPrefWidth(textWidth);
-        
-        KeyValue value = new KeyValue(text.layoutXProperty(), -textWidth);
-        KeyFrame frame = new KeyFrame(Duration.millis(speed), value);
-        timeline.getKeyFrames().add(frame);
-        double textHeight =  Toolkit.getToolkit().getFontLoader().getFontMetrics(text.getFont()).getLineHeight();
- 
-        text.relocate(width, (height / 2) - (textHeight / 2));
-        timeline.play();
-    }
-    
 }

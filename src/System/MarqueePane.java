@@ -38,16 +38,16 @@ public class MarqueePane extends Pane {
   private Pane clipPane;
   private Text TText;
 
-  private MarqueePane() {
-    TText = new Text();
-    TText.setStrokeWidth(0);
-
-    clipPane = this;
-    clipPane.getChildren().add(TText);
-
-    timeline = new Timeline();
-    timeline.setCycleCount(Animation.INDEFINITE);
-    timeline.setAutoReverse(false);
+ 
+  public MarqueePane(Pane pane,Text text) {
+      
+      TText = text;
+//      TText.setStrokeWidth(0);
+      clipPane = pane;
+//      clipPane.getChildren().add(TText);
+      timeline = new Timeline();
+      timeline.setCycleCount(Animation.INDEFINITE);
+      timeline.setAutoReverse(false);
   }
 
   /**
@@ -63,25 +63,18 @@ public class MarqueePane extends Pane {
    * @param fontSize
    *          文字大小
    */
-  public MarqueePane(double width, double height, String text, int speed, int fontSize) {
-    this();
+  public void init(double width, double height, String text, int speed) {
 
     TText.setText(text);
-    TText.setFont(Font.font("Arial", FontWeight.BOLD, fontSize));
-
-    clipPane.setPrefSize(width, height);
     clipPane.setClip(new Rectangle(width, height));
-
     double textWidth = getTextWidth(TText);
-
     KeyValue value = new KeyValue(TText.layoutXProperty(), -textWidth);
     KeyFrame frame = new KeyFrame(Duration.millis(speed), value);
     timeline.getKeyFrames().add(frame);
-
     double textHeight = getTextHeight(TText);
     TText.relocate(width, (height / 2) - (textHeight / 2));
   }
-
+  
   private double getTextWidth(Text text) {
     return Toolkit.getToolkit().getFontLoader().computeStringWidth(text.getText(), text.getFont());
   }

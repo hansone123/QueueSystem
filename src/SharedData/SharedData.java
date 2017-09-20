@@ -43,29 +43,20 @@ public class SharedData {
     private SharedData() {
         queueNumber = new int[7];
         Arrays.fill(queueNumber, 0);
-        
-                 
-    } 
-    public void init() throws FileNotFoundException {
         numberTemplatePath = System.getProperty("user.dir") + "/" + "/Template-Number.docx";
         numberPlatePath = System.getProperty("user.dir") + "/" + "/NumberPlate.docx";
         tableName = "QueueSystem";
         this.fillDate();
         db = new ConnectDatabase("QueueSystem.db");
         db.prepared();
-        this.loadFromDB(db);
-        
-    }
-    public static SharedData getInstance() { 
-        return instance; 
-    } 
-    public void loadFromDB(ConnectDatabase db) {
         List<String> datas = db.getTodayData();
         for (int i=0; i<7; i++) {
             this.queueNumber[i] = Integer.valueOf(datas.get(i+1));
         }
-        System.out.println();
-    }
+    } 
+    public static SharedData getInstance() { 
+        return instance; 
+    } 
     
     public void setServingNumber(PaymentType type, int iNum) {
         this.servingNumber[type.getValue()] = iNum;

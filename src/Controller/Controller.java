@@ -22,20 +22,7 @@ public abstract  class Controller implements Initializable{
     public Scene nScene;
     public Stage nStage;
     
-    
-    public void createScene(String fxml) {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml));
-            Scene scene = new Scene(fxmlLoader.load());
-            Controller contr = fxmlLoader.getController();
-            contr.init(scene, nStage);
-            this.nStage.setScene(scene);
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
-        
-        
-    }
+
     public void init(Scene scene, Stage stage) {
         this.nScene = scene;
         this.nStage = stage;

@@ -7,85 +7,105 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.QueueStateController">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.QueueStateController">
    <children>
-      <Label fx:id="label_HEALTH_INSURANCE" layoutX="700.0" layoutY="230.0" prefHeight="100.0" prefWidth="300.0" text="健保">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_BUREAU_OF_LABOR" layoutX="700.0" layoutY="370.0" prefHeight="100.0" prefWidth="300.0" text="勞保">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_SERVICE_WINDOW" layoutX="700.0" layoutY="90.0" prefHeight="100.0" prefWidth="300.0" text="單一窗口">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_LOCAL_TAX" layoutX="30.0" layoutY="230.0" prefHeight="100.0" prefWidth="240.0" text="市稅">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_MOTOR_VEHICLES_OFFICE" layoutX="30.0" layoutY="370.0" prefHeight="100.0" prefWidth="240.0" text="監理站">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_BUREAU_OF_TRANSPORTATION" layoutX="30.0" layoutY="90.0" prefHeight="100.0" prefWidth="240.0" text="交通局">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_NATIONAL_TAX" layoutX="30.0" layoutY="510.0" prefHeight="100.0" prefWidth="240.0" text="國稅局">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_BUREAU_OF_TRANSPORTATION_NUM" layoutX="310.0" layoutY="90.0" prefHeight="100.0" prefWidth="200.0" text="交通已抽號碼">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_LOCAL_TAX_NUM" layoutX="310.0" layoutY="230.0" prefHeight="100.0" prefWidth="200.0" text="市税已抽號碼">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_MOTOR_VEHICLES_OFFICE_NUM" layoutX="310.0" layoutY="370.0" prefHeight="100.0" prefWidth="200.0" text="監理站已抽號碼">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_NATIONAL_TAX_NUM" layoutX="310.0" layoutY="510.0" prefHeight="100.0" prefWidth="200.0" text="國稅局已抽號碼">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_SERVICE_WINDOW_NUM" layoutX="1010.0" layoutY="96.0" prefHeight="100.0" prefWidth="200.0" text="單一窗口已抽號碼">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_HEALTH_INSURANCE_NUM" layoutX="1010.0" layoutY="230.0" prefHeight="100.0" prefWidth="200.0" text="健保已抽號碼">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_BUREAU_OF_LABOR_NUM" layoutX="1010.0" layoutY="370.0" prefHeight="100.0" prefWidth="200.0" text="勞保已抽號碼">
-         <font>
-            <Font size="70.0" />
-         </font>
-      </Label>
-      <Pane fx:id="pane_MARQUEE" layoutX="3.0" layoutY="675.0" prefHeight="124.0" prefWidth="1392.0">
+      <Pane layoutX="30.0" layoutY="8.0" prefHeight="150.0" prefWidth="600.0">
          <children>
-            <Label fx:id="label_MARQUEE" layoutX="-1.0" layoutY="-1.0" prefHeight="124.0" prefWidth="1392.0" text="跑馬燈">
+            <Label fx:id="label_BUREAU_OF_TRANSPORTATION" layoutX="14.0" layoutY="16.0" prefHeight="118.0" prefWidth="300.0" text="交通局" textFill="WHITE">
                <font>
                   <Font size="96.0" />
                </font>
             </Label>
-         </children></Pane>
+            <Label fx:id="label_BUREAU_OF_TRANSPORTATION_NUM" layoutX="436.0" layoutY="15.0" prefHeight="120.0" prefWidth="150.0" text="99" textFill="#d11c1c">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="30.0" layoutY="158.0" prefHeight="150.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="label_LOCAL_TAX" layoutX="14.0" layoutY="16.0" prefHeight="95.0" prefWidth="240.0" text="市稅" textFill="WHITE">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_LOCAL_TAX_NUM" layoutX="436.0" layoutY="15.0" prefHeight="120.0" prefWidth="150.0" text="99" textFill="#d11c1c">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="30.0" layoutY="308.0" prefHeight="150.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="label_MOTOR_VEHICLES_OFFICE" layoutX="14.0" layoutY="16.0" prefHeight="118.0" prefWidth="300.0" text="監理站" textFill="WHITE">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_MOTOR_VEHICLES_OFFICE_NUM" layoutX="436.0" layoutY="15.0" prefHeight="120.0" prefWidth="150.0" text="99" textFill="#d11c1c">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="30.0" layoutY="458.0" prefHeight="150.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="label_NATIONAL_TAX" layoutX="8.0" layoutY="28.0" prefHeight="118.0" prefWidth="300.0" text="國稅局" textFill="WHITE">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_NATIONAL_TAX_NUM" layoutX="436.0" layoutY="15.0" prefHeight="120.0" prefWidth="150.0" text="99" textFill="#d11c1c">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="740.0" layoutY="8.0" prefHeight="150.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="label_SERVICE_WINDOW" layoutY="21.0" prefHeight="118.0" prefWidth="386.0" text="單一窗口" textFill="WHITE">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_SERVICE_WINDOW_NUM" layoutX="453.0" layoutY="15.0" prefHeight="120.0" prefWidth="150.0" text="99" textFill="#d11c1c">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="740.0" layoutY="158.0" prefHeight="150.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="label_HEALTH_INSURANCE_NUM" layoutX="454.0" layoutY="13.0" prefHeight="120.0" prefWidth="150.0" text="99" textFill="#d11c1c">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_HEALTH_INSURANCE" layoutX="-2.0" layoutY="25.0" prefHeight="100.0" prefWidth="300.0" text="健保" textFill="WHITE">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="740.0" layoutY="308.0" prefHeight="150.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="label_BUREAU_OF_LABOR" layoutX="-1.0" layoutY="20.0" prefHeight="100.0" prefWidth="300.0" text="勞保" textFill="WHITE">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_BUREAU_OF_LABOR_NUM" layoutX="450.0" layoutY="21.0" prefHeight="120.0" prefWidth="150.0" text="99" textFill="#d11c1c">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

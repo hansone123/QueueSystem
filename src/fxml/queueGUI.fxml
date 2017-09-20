@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
@@ -12,11 +13,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="label_Clock" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #302e34;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.QueueGUIController">
+<AnchorPane id="AnchorPane" fx:id="Pane_ROOT" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #302e34;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.QueueGUIController">
     <children>
       <ImageView fitHeight="899.0" fitWidth="1599.0" layoutX="-1.0" layoutY="-1.0">
          <image>
-            <Image url="file:../picture/背景.png" />
+            <Image url="file:背景.png" />
          </image>
       </ImageView>
         <Button fx:id="button_Introduction" layoutX="591.0" layoutY="786.0" onAction="#handleButtonAction" prefHeight="113.0" prefWidth="414.0" style="-fx-opacity: 0;" text="業務內容說明">
@@ -67,12 +68,12 @@
                </font>
             </Label>
          </graphic></Button>
-      <Label fx:id="label_CALENDAR" layoutX="704.0" layoutY="461.0" minHeight="16" minWidth="69" prefHeight="60.0" prefWidth="212.0" text="2017/02/04" textFill="WHITE">
+      <Label fx:id="label_CALENDAR" layoutX="704.0" layoutY="461.0" minHeight="16" minWidth="69" prefHeight="60.0" prefWidth="199.0" text="2017/02/04" textFill="WHITE">
          <font>
             <Font name="Luminari" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="label_CLOCK" layoutX="723.0" layoutY="508.0" minHeight="16" minWidth="69" prefHeight="60.0" prefWidth="188.0" text="00:00:00" textFill="WHITE">
+      <Label fx:id="label_CLOCK" layoutX="719.0" layoutY="506.0" minHeight="16" minWidth="69" prefHeight="60.0" prefWidth="169.0" text="00:00:00" textFill="WHITE">
          <font>
             <Font name="Luminari" size="40.0" />
          </font>
@@ -113,5 +114,14 @@
             </Label>
          </graphic>
       </Button>
+      <Pane fx:id="Pane_MARQUEE" layoutX="444.0" layoutY="613.0" prefHeight="80.0" prefWidth="720.0">
+         <children>
+            <Text fx:id="Text_MARQUEE" fill="WHITE" layoutX="14.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="我是跑馬燈">
+               <font>
+                  <Font size="60.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
     </children>
 </AnchorPane>
