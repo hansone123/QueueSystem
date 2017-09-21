@@ -114,11 +114,11 @@
             </Label>
          </graphic>
       </Button>
-      <Pane fx:id="Pane_MARQUEE" layoutX="444.0" layoutY="613.0" prefHeight="80.0" prefWidth="720.0">
+      <Pane fx:id="Pane_MARQUEE" layoutX="439.0" layoutY="611.0" prefHeight="113.0" prefWidth="720.0">
          <children>
-            <Text fx:id="Text_MARQUEE" fill="WHITE" layoutX="14.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="我是跑馬燈">
+            <Text fx:id="Text_MARQUEE" fill="WHITE" layoutX="-500.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="請按扭取單，並等待櫃台上方號碼。" wrappingWidth="1746.0">
                <font>
-                  <Font size="60.0" />
+                  <Font size="100.0" />
                </font>
             </Text>
          </children>
