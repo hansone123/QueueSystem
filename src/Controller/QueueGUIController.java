@@ -167,7 +167,7 @@ public class QueueGUIController extends Controller {
         }catch(IOException e) {
             e.printStackTrace();
         }
-        System.out.println("主畫面跑馬燈長度：" + text.length());
+//        System.out.println("主畫面跑馬燈長度：" + text.length());
         MarqueePane pane = new MarqueePane(this.Pane_MARQUEE, this.Text_MARQUEE);
         pane.init(720, 113, text, 400*text.length());
 //        System.out.println("Pane_MARQUEE:(w)" +this.Pane_MARQUEE.getWidth() +" Pane_MARQUEE:(h)"+this.Pane_MARQUEE.getWidth());

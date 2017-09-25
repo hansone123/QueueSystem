@@ -74,7 +74,6 @@ public class ProduceQueueNumber extends Command{
         String deskNum = String.valueOf(this.paymentType.getValue()+1);
         Map<String, String> patterns = new TreeMap();
         SharedData data = SharedData.getInstance();
-        
         patterns.put("n1", queueNum);
         patterns.put("n2", deskNum);
         patterns.put("n3", this.paymentType.getName());
